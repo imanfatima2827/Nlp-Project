@@ -40,7 +40,7 @@ EXAMPLES = [
     "پولیس کے خلاف شکایت کہاں کریں؟",
     "character certificate kitne din mein milta hai",
 ]
-AVATARS = {"user": "👤", "assistant": "🚓"}
+AVATARS = {"user": "👤", "assistant": "🤖"}
 ERROR_MSG = "معاف کیجیے، کوئی خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔"
 
 CSS = """
@@ -86,7 +86,7 @@ def show(text: str):
     st.markdown(text.replace("\n", "  \n"))
 
 
-st.set_page_config(page_title="PKM Urdu Assistant", page_icon="🚓", layout="centered")
+st.set_page_config(page_title="PKM Urdu Assistant", page_icon="💬", layout="centered")
 st.markdown(f"<style>{CSS}</style>", unsafe_allow_html=True)
 st.markdown('<div class="title"><h1>پنجاب پولیس خدمت مرکز</h1><p>اردو معلوماتی اسسٹنٹ</p></div>',
             unsafe_allow_html=True)
