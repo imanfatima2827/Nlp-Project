@@ -1,0 +1,13 @@
+# chatbot
+sentence-transformers>=2.7
+numpy>=1.24
+
+# web app
+gradio>=6.0,<7
+
+# AI answers with Gemini (optional - the bot works without it)
+google-genai>=1.0
+
+# scrapers (only needed to re-scrape the website)
+selenium>=4.10
+beautifulsoup4>=4.12

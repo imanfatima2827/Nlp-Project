@@ -1,0 +1,5 @@
+# Small install for free servers (Render: 512 MB RAM). No PyTorch: embeddings come from the Gemini API.
+# Used with EMBEDDINGS=gemini (set in render.yaml).
+numpy>=1.24
+gradio>=6.0,<7
+google-genai>=1.0

@@ -1,0 +1,16 @@
+# Render Blueprint: free web service for the PKM Urdu Assistant.
+# Render dashboard -> New -> Blueprint -> pick this GitHub repo. Then paste GEMINI_API_KEY when asked.
+services:
+  - type: web
+    name: pkm-urdu-assistant
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-server.txt
+    startCommand: python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+      - key: EMBEDDINGS
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false        # secret: entered in the dashboard, never stored in the repo

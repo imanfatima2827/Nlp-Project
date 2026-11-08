@@ -1,0 +1,7 @@
+__pycache__/
+data/chat_history.jsonl
+.env
+data/feedback.jsonl
+venv/
+.venv/
+*.zip
