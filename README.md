@@ -1,16 +1,3 @@
----
-title: PKM Urdu Assistant
-emoji: 🚓
-colorFrom: green
-colorTo: blue
-sdk: gradio
-sdk_version: 6.31.0
-python_version: "3.11"
-app_file: app.py
-pinned: false
-short_description: Urdu Q&A on Punjab Police Khidmat Markaz services
----
-
 # Punjab Police Khidmat Markaz – Urdu Query Assistant
 
 Answers Urdu questions about Punjab Police Khidmat Markaz (PKM) services and centres:
