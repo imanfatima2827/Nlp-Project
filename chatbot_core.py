@@ -397,7 +397,7 @@ class UrduChatbot:
 
 
 # Similarity scales differ between embedding models, so each has its own default threshold.
-# The Gemini value is provisional: confirm it with  EMBEDDINGS=gemini python evaluate.py
+# Gemini: evaluate.py gave lowest in-scope 0.725 and highest out-of-scope 0.583, so 0.65 sits in between.
 THRESHOLDS = {"local": DEFAULT_THRESHOLD, "gemini": 0.65}
 
 

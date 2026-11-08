@@ -1,0 +1,5 @@
+# Streamlit Community Cloud installs this file (it sits next to the entry point).
+# No PyTorch: embeddings come from the Gemini API (EMBEDDINGS=gemini).
+numpy>=1.24
+streamlit>=1.40
+google-genai>=1.0

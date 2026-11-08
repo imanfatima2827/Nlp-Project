@@ -34,6 +34,18 @@ Gemini is called, so it can't invent answers about unrelated topics.
 Free tier note: limits are shown in AI Studio, and Google may use free-tier prompts to improve its
 products, so don't send personal data (CNIC numbers etc.) through it.
 
+## Deploy free on Streamlit Community Cloud (no card needed)
+
+`streamlit_app/app.py` is a Streamlit version of the web app. It uses Gemini embeddings, so it fits in the free 1 GB.
+
+1. Push the project to a public GitHub repository (including `data/cache/*.npy`, the saved search index).
+2. Go to share.streamlit.io, sign in with GitHub, **Create app → Deploy a public app from GitHub**.
+3. Repository: your repo, Branch: `main`, Main file path: `streamlit_app/app.py`.
+4. **Advanced settings**: Python 3.12, and under Secrets: `GEMINI_API_KEY = "your-key"`. **Deploy**.
+5. The app is live at `https://<name>.streamlit.app`. It sleeps when unused; the next visitor wakes it.
+
+Run it locally: `pip install streamlit` then `streamlit run streamlit_app/app.py`.
+
 ## Deploy free on Render
 
 Hugging Face now requires a paid PRO plan for Gradio Spaces, so the free option is **Render** (no card needed).
@@ -62,6 +74,7 @@ Free Render services sleep after 15 minutes without visitors; the next visit wak
 | `app.py` | Gradio web app (also runs on Hugging Face Spaces) |
 | `urdu_chatbot.py` | Tkinter desktop app + terminal mode |
 | `evaluate.py` | 30 test questions; reports accuracy and suggests a threshold |
+| `streamlit_app/` | Streamlit version of the web app for free hosting (no card) |
 | `render.yaml`, `requirements-server.txt` | Free deployment on Render (Gemini embeddings, no PyTorch) |
 | `deploy_hf.py` | Deploy to Hugging Face Spaces (needs a PRO account) |
 | `take_screenshots.py` | Takes screenshots of the running web app for the docs |
