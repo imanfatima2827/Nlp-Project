@@ -40,11 +40,15 @@ EXAMPLES = [
     "پولیس کے خلاف شکایت کہاں کریں؟",
     "character certificate kitne din mein milta hai",
 ]
+AVATARS = {"user": "👤", "assistant": "🚓"}
 ERROR_MSG = "معاف کیجیے، کوئی خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔"
 
 CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
-.urdu, [data-testid="stChatMessage"], [data-testid="stChatMessage"] *, [data-testid="stChatInput"] textarea,
+/* Font only on text: avatars and the thumbs icons use an icon font, and overriding it
+   makes them show their names ("face", "smart_toy") instead of the icons. */
+.urdu, [data-testid="stChatMessage"] [data-testid="stMarkdownContainer"],
+[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] *, [data-testid="stChatInput"] textarea,
 .stButton button p {
     font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
 }
@@ -106,7 +110,7 @@ if not state.messages:
 
 # conversation so far
 for i, m in enumerate(state.messages):
-    with st.chat_message(m["role"]):
+    with st.chat_message(m["role"], avatar=AVATARS[m["role"]]):
         show(m["content"])
         if m["role"] == "assistant":
             rating = st.feedback("thumbs", key=f"fb{i}")
@@ -117,9 +121,9 @@ for i, m in enumerate(state.messages):
 prompt = st.chat_input("اپنا سوال یہاں لکھیں...") or state.pop("pending", None)
 if prompt:
     state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
+    with st.chat_message("user", avatar=AVATARS["user"]):
         show(prompt)
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar=AVATARS["assistant"]):
         with st.spinner("جواب تلاش کیا جا رہا ہے..."):
             try:
                 answer = bot.answer(prompt, state.history).text
